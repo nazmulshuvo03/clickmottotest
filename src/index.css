@@ -16,3 +16,23 @@ button:focus,
 input:focus {
     outline: none;
 }
+
+.scroll-area {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.category-items {
+    flex: 0 0 auto;
+    margin-right: 16px;
+}
+
+.scroll-area::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-area {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

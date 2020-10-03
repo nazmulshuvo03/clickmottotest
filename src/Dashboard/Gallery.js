@@ -4,7 +4,7 @@ import placeholder from "../assets/placeholder.jpg";
 
 const Gallery = ({ data }) => {
     return (
-        <div>
+        <div style={{ margin: "1rem 4rem" }}>
             <div className="row row-cols-auto">
                 {data && data.length > 0 ? (
                     data.map((photo) => (
@@ -13,7 +13,12 @@ const Gallery = ({ data }) => {
                         </div>
                     ))
                 ) : (
-                    <img src={placeholder} alt="Placeholder" />
+                    <img
+                        src={placeholder}
+                        alt="Placeholder"
+                        height="100%"
+                        width="100%"
+                    />
                 )}
             </div>
         </div>
