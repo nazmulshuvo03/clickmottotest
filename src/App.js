@@ -5,12 +5,24 @@ import Navbar from "./Components/Navbar";
 import Dashboard from "./Dashboard/index";
 
 const App = () => {
+    const [smallScreen, setSmallScreen] = React.useState(false);
+
+    React.useEffect(() => {
+        window.innerWidth < 989 ? setSmallScreen(true) : setSmallScreen(false);
+    }, []);
+
     return (
-        <div>
+        <div style={{ overflow: "hidden" }}>
             <BrowserRouter>
-                <Navbar />
+                <Navbar smallScreen={smallScreen} />
                 <Switch>
-                    <Route exact path="/" component={Dashboard} />
+                    <Route
+                        exact
+                        path="/"
+                        component={() => (
+                            <Dashboard smallScreen={smallScreen} />
+                        )}
+                    />
                 </Switch>
             </BrowserRouter>
         </div>

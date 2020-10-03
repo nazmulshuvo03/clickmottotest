@@ -4,7 +4,7 @@ import { createClient } from "pexels";
 
 import placeholder from "../assets/placeholder.jpg";
 
-const Display = () => {
+const Display = ({ smallScreen }) => {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
@@ -12,7 +12,6 @@ const Display = () => {
 
         client.photos.show({ id: 1684187 }).then((photos) => {
             // setData(videos.videos[0].video_files[1]);
-            console.log(photos);
             setData(photos);
         });
     }, []);
@@ -25,7 +24,6 @@ const Display = () => {
                 })`,
                 backgroundRepeat: "no-repeat",
                 height: "40rem",
-                width: "100%",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
             }}

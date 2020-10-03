@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import logo from "../assets/logoText.png";
 
-const Navbar = (props) => {
+const MenuOptions = ({ smallScreen }) => {
     const listStyle = {
         margin: "auto 8px",
         color: "#818181",
@@ -14,85 +14,115 @@ const Navbar = (props) => {
     return (
         <div
             style={{
-                display: "flex",
-                flexDirection: "row",
-                flex: 1,
-                height: "64px",
-                margin: "8px 0",
-                padding: "4px 32px",
+                width: "40%",
+                marginLeft: `${smallScreen ? "0" : "auto"}`,
             }}
         >
-            <img src={logo} alt="Logo" height="40" width="160" />
-            <div
+            <ul
                 style={{
-                    width: "42rem",
-                    marginLeft: "auto",
+                    display: "flex",
+                    flexDirection: "row",
+                    flex: 1,
+                    listStyleType: "none",
                 }}
             >
-                <ul
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        flex: 1,
-                        listStyleType: "none",
-                    }}
-                >
-                    <li style={listStyle}>Explore</li>
-                    <li style={listStyle}>Discover</li>
-                    <li style={listStyle}>For Professional</li>
-                    <li style={listStyle}>
-                        <i className="fas fa-ellipsis-h"></i>
-                    </li>
-                    <li style={listStyle}>
-                        <button
-                            style={{
-                                borderColor: "#818181",
-                                borderRadius: "6px",
-                                borderWidth: "1px",
-                                backgroundColor: "#fff",
-                                height: "34px",
-                                width: "123px",
-                                fontSize: "15px",
-                                fontWeight: "400",
-                                color: "#818181",
-                            }}
-                        >
-                            Submit Photos
-                        </button>
-                    </li>
-                    <li
+                <li style={listStyle}>Explore</li>
+                <li style={listStyle}>Discover</li>
+                <li style={listStyle}>For Professional</li>
+                <li style={listStyle}>
+                    <i className="fas fa-ellipsis-h"></i>
+                </li>
+                <li style={listStyle}>
+                    <button
                         style={{
-                            borderLeft: "2px solid #818181",
-                        }}
-                    ></li>
-                    <li
-                        style={{
-                            margin: "auto 8px",
+                            borderColor: "#818181",
+                            borderRadius: "6px",
+                            borderWidth: "1px",
+                            backgroundColor: "#fff",
+                            height: "34px",
+                            width: "123px",
+                            fontSize: "15px",
+                            fontWeight: "400",
                             color: "#818181",
-                            fontSize: "16px",
-                            padding: "6px 8px",
-                            cursor: "pointer",
                         }}
                     >
-                        Login
-                    </li>
-                    <li style={listStyle}>
+                        Submit Photos
+                    </button>
+                </li>
+                <li
+                    style={{
+                        borderLeft: "2px solid #818181",
+                    }}
+                ></li>
+                <li
+                    style={{
+                        margin: "auto 8px",
+                        color: "#818181",
+                        fontSize: "16px",
+                        padding: "6px 8px",
+                        cursor: "pointer",
+                    }}
+                >
+                    Login
+                </li>
+                <li style={listStyle}>
+                    <button
+                        style={{
+                            backgroundColor: "#e17800",
+                            color: "#fff",
+                            fontSize: "15px",
+                            border: "none",
+                            borderRadius: "6px",
+                            padding: "6px 8px",
+                        }}
+                    >
+                        Join Free
+                    </button>
+                </li>
+            </ul>
+        </div>
+    );
+};
+
+const Navbar = ({ smallScreen }) => {
+    const [openMenu, setOpenMenu] = React.useState(false);
+
+    const menuClick = () => {
+        setOpenMenu(!openMenu);
+    };
+
+    return (
+        <>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    flex: 1,
+                    height: "64px",
+                    margin: "8px 0",
+                    padding: "4px 32px",
+                }}
+            >
+                <img src={logo} alt="Logo" height="40" width="160" />
+                {smallScreen ? (
+                    <div style={{ width: "1rem", marginLeft: "auto" }}>
                         <button
                             style={{
-                                backgroundColor: "#e17800",
-                                color: "#fff",
-                                fontSize: "15px",
+                                backgroundColor: "#fff",
                                 border: "none",
-                                borderRadius: "6px",
-                                padding: "6px 8px",
+                                fontSize: "1.5rem",
                             }}
+                            onClick={menuClick}
                         >
-                            Join Free
+                            <i className="fas fa-bars"></i>
                         </button>
-                    </li>
-                </ul>
+                    </div>
+                ) : (
+                    <MenuOptions smallScreen={smallScreen} />
+                )}
             </div>
-        </div>
+            {openMenu ? <MenuOptions smallScreen={smallScreen} /> : null}
+        </>
     );
 };
 

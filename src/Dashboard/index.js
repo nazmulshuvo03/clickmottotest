@@ -5,12 +5,12 @@ import Display from "./Display";
 import Categories from "./Categories";
 import Gallery from "./Gallery";
 
-const Dashboard = (props) => {
+const Dashboard = ({ smallScreen }) => {
     return (
         <div style={{ padding: "0 32px" }}>
-            <Display />
-            <Categories />
-            <Gallery />
+            <Display smallScreen={smallScreen} />
+            <Categories smallScreen={smallScreen} />
+            <Gallery smallScreen={smallScreen} />
         </div>
     );
 };
