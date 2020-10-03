@@ -11,7 +11,6 @@ const Display = ({ smallScreen }) => {
         const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
 
         client.photos.show({ id: 1684187 }).then((photos) => {
-            // setData(videos.videos[0].video_files[1]);
             setData(photos);
         });
     }, []);

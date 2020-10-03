@@ -14,7 +14,7 @@ const MenuOptions = ({ smallScreen }) => {
     return (
         <div
             style={{
-                width: "40%",
+                width: "55%",
                 marginLeft: `${smallScreen ? "0" : "auto"}`,
             }}
         >
@@ -23,7 +23,10 @@ const MenuOptions = ({ smallScreen }) => {
                     display: "flex",
                     flexDirection: "row",
                     flex: 1,
+                    width: "fit-content",
                     listStyleType: "none",
+                    marginLeft: "auto",
+                    paddingLeft: 0,
                 }}
             >
                 <li style={listStyle}>Explore</li>
