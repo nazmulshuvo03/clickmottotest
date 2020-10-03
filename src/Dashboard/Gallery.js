@@ -33,7 +33,7 @@ const Gallery = () => {
                 // api limit exceeded for the day
             });
         }
-    }, []);
+    }, [option]);
 
     return (
         <div style={{ margin: "1rem 4rem" }}>
