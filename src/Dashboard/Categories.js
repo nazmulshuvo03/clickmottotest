@@ -3,7 +3,7 @@ import { createClient } from "pexels";
 
 import placeholder from "../assets/placeholder.jpg";
 
-const SingleCategory = ({ query }) => {
+const SingleCategory = ({ query, smallScreen }) => {
     const [backgroundImage, setBackgroundImage] = React.useState();
 
     const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
@@ -41,7 +41,7 @@ const SingleCategory = ({ query }) => {
     );
 };
 
-const Categories = () => {
+const Categories = ({ smallScreen }) => {
     const categories = [
         "Food",
         "Workspace",
@@ -63,7 +63,7 @@ const Categories = () => {
     };
 
     return (
-        <div style={{ margin: "1rem 3rem" }}>
+        <div style={{ margin: `${smallScreen ? "0.5rem" : "1rem 3rem"}` }}>
             <div
                 style={{
                     fontSize: "1.5rem",
@@ -88,7 +88,10 @@ const Categories = () => {
                 <div className="scroll-area" id="scroll-area">
                     {categories.map((category) => (
                         <div className="category-items p-0">
-                            <SingleCategory query={category} />
+                            <SingleCategory
+                                query={category}
+                                smallScreen={smallScreen}
+                            />
                         </div>
                     ))}
                 </div>

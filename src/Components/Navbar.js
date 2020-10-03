@@ -5,7 +5,7 @@ import logo from "../assets/logoText.png";
 
 const MenuOptions = ({ smallScreen }) => {
     const listStyle = {
-        margin: "auto 8px",
+        margin: `${smallScreen ? "auto 5px" : "auto 8px"}`,
         color: "#818181",
         fontSize: "16px",
         cursor: "pointer",
@@ -100,12 +100,12 @@ const Navbar = ({ smallScreen }) => {
                     flex: 1,
                     height: "64px",
                     margin: "8px 0",
-                    padding: "4px 32px",
+                    padding: `${smallScreen ? "4px 5px" : "4px 32px"}`,
                 }}
             >
                 <img src={logo} alt="Logo" height="40" width="160" />
                 {smallScreen ? (
-                    <div style={{ width: "1rem", marginLeft: "auto" }}>
+                    <div style={{ width: "2rem", marginLeft: "auto" }}>
                         <button
                             style={{
                                 backgroundColor: "#fff",

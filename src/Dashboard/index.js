@@ -7,7 +7,7 @@ import Gallery from "./Gallery";
 
 const Dashboard = ({ smallScreen }) => {
     return (
-        <div style={{ padding: "0 32px" }}>
+        <div style={{ padding: `${smallScreen ? "0 5px" : "0 32px"}` }}>
             <Display smallScreen={smallScreen} />
             <Categories smallScreen={smallScreen} />
             <Gallery smallScreen={smallScreen} />

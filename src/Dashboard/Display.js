@@ -30,7 +30,7 @@ const Display = ({ smallScreen }) => {
         >
             <div
                 style={{
-                    width: "40rem",
+                    width: `${smallScreen ? "90%" : "40%"}`,
                     height: "10rem",
                     margin: "auto",
                     paddingTop: "10rem",
@@ -38,7 +38,7 @@ const Display = ({ smallScreen }) => {
             >
                 <div
                     style={{
-                        fontSize: "34px",
+                        fontSize: `${smallScreen ? "22px" : "34px"}`,
                         fontWeight: "bold",
                         textAlign: "left",
                         color: "#fff",
